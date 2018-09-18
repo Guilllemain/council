@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Channel;
-use App\Filters\ThreadFilters;
-use App\Rules\Recaptcha;
-use App\Rules\SpamFree;
 use App\Thread;
+use App\Channel;
 use App\Trending;
-use Carbon\Carbon;
+use App\Rules\SpamFree;
+use App\Rules\Recaptcha;
 use Illuminate\Http\Request;
+use App\Filters\ThreadFilters;
 use Illuminate\Support\Facades\Redis;
 
 class ThreadsController extends Controller
@@ -31,7 +30,6 @@ class ThreadsController extends Controller
         if ($channel) {
             $threads = $channel->threads()->latest();
         }
-
 
         $threads = $threads->paginate(5);
 

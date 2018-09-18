@@ -9,7 +9,7 @@ trait RecordsActivity
         if (auth()->guest()) {
             return;
         }
-        
+
         static::created(function ($event) {
             $event->recordActivity('created');
         });
@@ -22,7 +22,7 @@ trait RecordsActivity
     protected function recordActivity($event)
     {
         $this->activity()->create([
-            'type' => $event . '_' . strtolower((new \ReflectionClass($this))->getShortName()),
+            'type' => $event.'_'.strtolower((new \ReflectionClass($this))->getShortName()),
             'user_id' => auth()->id()
         ]);
 

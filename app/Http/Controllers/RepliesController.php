@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Channel;
-use App\Http\Requests\CreatePostRequest;
 use App\Reply;
-use App\Rules\SpamFree;
 use App\Thread;
-use App\User;
+use App\Channel;
+use App\Rules\SpamFree;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreatePostRequest;
 
 class RepliesController extends Controller
 {
@@ -16,8 +15,6 @@ class RepliesController extends Controller
     {
         $this->middleware('auth');
     }
-
-
 
     /**
      * Display a listing of the resource.

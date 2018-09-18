@@ -2,11 +2,9 @@
 
 namespace App\Listeners;
 
+use App\User;
 use App\Events\ThreadHasNewReply;
 use App\Notifications\YouWereMentioned;
-use App\User;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class NotifyMentionedUsers
 {
