@@ -10,6 +10,7 @@ class ThreadHasNewReply
 
     public $thread;
     public $reply;
+
     /**
      * Create a new event instance.
      *

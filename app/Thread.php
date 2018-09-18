@@ -2,12 +2,10 @@
 
 namespace App;
 
-use App\Events\ThreadHasNewReply;
-use App\Visits;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Redis;
 use Laravel\Scout\Searchable;
+use App\Events\ThreadHasNewReply;
 use Stevebauman\Purify\Facades\Purify;
+use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
@@ -50,7 +48,7 @@ class Thread extends Model
     {
         return "/threads/{$this->channel->slug}/{$this->slug}";
     }
-    
+
     public function replies()
     {
         return $this->hasMany('App\Reply');
@@ -101,7 +99,7 @@ class Thread extends Model
     public function unsubscribe($userId = null)
     {
         $this->subscriptions()
-            ->where('user_id', $userId ?:auth()->id())
+            ->where('user_id', $userId ?: auth()->id())
             ->delete();
     }
 
@@ -134,7 +132,7 @@ class Thread extends Model
         $slug = str_slug($value);
 
         if (static::whereSlug($slug)->exists()) {
-            $slug = "{$slug}-" . $this->id;
+            $slug = "{$slug}-".$this->id;
         }
 
         // $max = static::whereTitle($this->title)->latest('id')->value('slug');

@@ -25,6 +25,6 @@ class Visits
 
     public function cacheKey()
     {
-        return 'threads' . $this->thread->id . 'visits';
+        return 'threads'.$this->thread->id.'visits';
     }
 }

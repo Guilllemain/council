@@ -17,7 +17,6 @@ class ThreadPolicy
      * @param  \App\Thread  $thread
      * @return mixed
      */
-
     public function view(User $user, Thread $thread)
     {
         //
